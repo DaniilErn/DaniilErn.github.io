@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src='modal.js'></script>
+  <title>Modal Window by Daniil</title>
+  <style type="text/css">
+    
+    .modalWindow {
+      border: 1px solid black;
+    }
+
+  </style>
+</head>
+<body>
+
+  <script type="text/javascript">
+  var sup = new Modal({
+    bottom: '150px',
+    left: '150px',
+    width: '250px',
+    height: '100px',
+    textAlign: 'center',
+    title: {
+      content: 'Вы зарегестрированы!',
+      fontSize: '18px',
+      event: 'click',
+      eventFunc: function() {
+        alert(123);
+      }
+    },
+    text: {
+      content: 'Вы можете перейти на страницу',
+      fontSize: '14px',
+      event: 'click',
+      eventFunc: function() {
+        alert(123);
+      }
+    },
+    button: {
+      content: 'Перейти',
+      event: 'click',
+      eventFunc: function() {
+        alert(123);
+      }
+    }
+  });
+  </script>
+
+</body>
+</html>
