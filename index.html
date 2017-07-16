@@ -1,51 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <script type="text/javascript" src='modal.js'></script>
-  <title>Modal Window by Daniil</title>
-  <style type="text/css">
-    
-    .modalWindow {
-      border: 1px solid black;
-    }
+  <meta charset="UTF-8" />
 
-  </style>
+	<link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/mono-blue.css" />
+
+	<script type='text/javascript' src='scripts/modal.js' defer></script>
+	<script type='text/javascript' src='scripts/script.js' defer></script>
+  <script type='text/javascript' src='scripts/highlight.pack.js'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 <body>
 
-  <script type="text/javascript">
-  var sup = new Modal({
-    bottom: '150px',
-    left: '150px',
-    width: '250px',
-    height: '100px',
-    textAlign: 'center',
-    title: {
-      content: 'Вы зарегестрированы!',
-      fontSize: '18px',
-      event: 'click',
-      eventFunc: function() {
-        alert(123);
-      }
-    },
-    text: {
-      content: 'Вы можете перейти на страницу',
-      fontSize: '14px',
-      event: 'click',
-      eventFunc: function() {
-        alert(123);
-      }
-    },
-    button: {
-      content: 'Перейти',
-      event: 'click',
-      eventFunc: function() {
-        alert(123);
-      }
-    }
-  });
-  </script>
+  <header>
+    <h1>Добро пожаловать!</h1>
+    <p>Сегодня я вам расскажу что такое modal.js</p>
+    <button>Начать!</button>
+  </header>
+
+  <article>
+    <div class="art">
+      <span>
+         <ul>
+          <li>Кроссбраузерно</li>
+          <li>Легко!</li>
+          <li>Минимум JS кода!</li>
+        </ul>
+        modal.js v 0.1<br />
+        Мы улучшаем наш контент!<br /> 
+        <a href="https://github.com/DaniilErn/DaniilErn.github.io">https://github.com/DaniilErn/DaniilErn.github.io</a>
+      </span>
+    </div>
+    <div class="example1">
+      <h1>И так, начнем!</h1>
+      <p>Для начала примеры!</p>
+      <button>Нажми!</button>
+      <pre>
+        JS:
+        <code class='javascript'>
+         modalWindow({
+          class: 'mw1',
+          top: '50%',
+          left: '50%',
+          width: '500px',
+          height: '250px',
+          header: {
+            content: 'Это модальное окно!'
+          },
+          text: {
+            content: 'В JS вы пишите лишь то, что в нем будет, каких оно будет размеров и где находиться, все остальное стилизуется в CSS',
+            fontSize: '18px',
+            fontWeight: '200' 
+          },
+          button : {
+            content: 'click me!',
+            event: 'click',
+            eventFunc: function(event) {
+              event = event || window.event;
+              event.target.parentNode.remove();
+            }
+          }
+        });
+        </code>
+        CSS:
+        <code class='css'>
+          .mw1 {
+            border: 1px solid #3E73A7;
+            background: #fff;
+            transform: translate(-50%, -50%);
+          }
+
+          .mw1 .header {
+            background: #3E73A7;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 5%;
+            text-align: center;
+          }
+
+          .mw1 .text {
+            color: #3E73A7;
+            padding: 5%;
+          }
+
+          .mw1 .button {
+            padding: 2% 4%;
+            color: #fff;
+            background:  #3E73A7;
+            border: 1px solid  #3E73A7;
+            font-size: 16px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            transition: .5s;
+            cursor: pointer;
+          }
+
+          .mw1 .button:hover {
+            color: #3E73A7;
+            background:  #fff;
+          }
+        </code>
+      </pre>
+    </div>
+    <div class="learn">
+      <h1>Теперь немножко объяснений, кто за что отвечает</h1>
+      <pre>
+        <code class="javascript">
+          /* Для начала нужно запустить саму функцию создания окна: */
+          modalWindow();
+          /* В аргументах функции нужно передать объект */
+          modalWindow({
+
+          });
+          /* Начинается самое интересное: */
+          modalWindow({
+            class: 'modalWindow', // Класс окна, по default стоит modalWindow, используется для того, чтобы взять окно в CSS 
+            top: auto, // Расстояние сверху
+            right: auto, // Расстояние справа
+            left: '10px', // Расстояние слева
+            bottom: '10px', // Расстояние снизу
+            opacity: 0, // С какой прозрачностью он начнет появление, если хотите сразу показать окно, без анимации появления, указываете 1, по default: 0
+            time: 50, // Время появления, default: 50
+            width: '100px', // Ширина окна, по default: auto
+            height: '100px', // Высота окна, по default: auto
+            textAlign: 'left', // То же, что и text-aligh: left в CSS, по default: left
+
+            /* Теперь самое интересное! Контент! */
+            header: { // Шапка
+              content: 'Шапка', // Текст внутри 
+              class: 'header' // Класс шапки, по default стоит 
+              /* Можно добавить разные события */
+              event: 'click', // Тип события
+              eventFunc: function(){
+                // Функция-обработчик события
+              }
+            },
+            title: { // Заголовок
+              content: 'Заголовок', // Текст внутри
+              class: 'title', // Класс Заголовка, default: title
+              fontFamily: 'Verdana', // Шрифт, default: Verdana
+              fontWeight: '400', // Жирность, default: 400
+              fontSize: '26px', // Размер шрифта, default: 26px
+              event: 'click', // Тип события
+              eventFunc: function(){
+                // Функция-обработчик события
+              }
+            },
+            text: { // Текст
+              content: 'Текст', // Текст внутри
+              class: 'text', // Класс Заголовка, default: text
+              fontFamily: 'Verdana', // Шрифт, default: Verdana
+              fontWeight: '400', // Жирность, default: 400
+              fontSize: '26px', // Размер шрифта, default: 26px
+              event: 'click', // Тип события
+              eventFunc: function(){
+                // Функция-обработчик события
+              }
+            },
+            button: { // Кнопка
+              content: 'Кнопка', // Текст внутри
+              class: 'button', // Класс Заголовка, default: button
+              fontFamily: 'Verdana', // Шрифт, default: Verdana
+              fontWeight: '400', // Жирность, default: 400
+              fontSize: '26px', // Размер шрифта, default: 26px
+              event: 'click', // Тип события
+              eventFunc: function(){
+                // Функция-обработчик события
+              }
+            },
+
+
+
+            
+
+          });
+        </code>
+      </pre>
+    </div>
+    <div class="examples">
+      <h1> Вот еще несколько примеров </h1>
+      <button class="example-1">Оповещение</button>
+      <button class="example-2">Действие</button>
+      <button class="example-3">Выбор</button>
+    </div>
+  </article>
 
 </body>
 </html>

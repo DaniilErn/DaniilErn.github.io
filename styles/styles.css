@@ -1,0 +1,230 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0 15%;
+  font-family: Verdana, sans-serif; 
+}
+
+
+/* HEADER */
+header {
+  text-align: center;
+  background: #3E73A7;
+  color: #fff;
+  padding: 10% 5%;
+  box-shadow: 6px 0px 10px #CBCBCB;
+  z-index: 1;
+}
+
+header h1 {
+  font-weight: 300;
+  font-size: 32px;
+  margin-bottom: 3%;
+}
+
+header p {
+  font-weight: 200;
+  font-size: 18px;
+  margin-bottom: 3%;
+}
+
+header button {
+  padding: 2% 4%;
+  border: 1px solid #3E73A7;
+  font-weight: 100;
+  font-size: 18px;
+  color: #3E73A7;;
+  background: #fff;
+  transition: .5s;
+  cursor: pointer;
+}
+
+header button:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  background: #3E73A7;
+}
+
+/* ARTICLE */
+article {
+  height: 0;
+  overflow: hidden;
+  margin-top: -2%;
+  z-index: -1;
+  background: #fff;
+  margin-bottom: 15%;
+  box-shadow: 6px 10px 10px #CBCBCB;
+}
+
+.art {
+  margin: 10%;
+}
+
+.art span {
+  margin-left: 50%;
+  transform: translateX(-25%);
+}
+
+.art ul {
+  margin-bottom: 2%;
+}
+
+.example1 {
+  text-align: center;
+  color: #444;
+}
+
+.example1 h1 {
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 1%;
+}
+
+.example1 p {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.example1 button {
+  margin-top: 2%;
+  padding: 2% 4%;
+  border: 1px solid #3E73A7;
+  font-weight: 100;
+  font-size: 18px;
+  color: #fff;
+  background: #3E73A7;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.example1 button:hover {
+  color: #3E73A7;
+  background: #fff;
+}
+
+.example1 pre {
+  text-align: left;
+}
+
+.example1 code {
+  max-height: 300px;
+  overflowY: scroll;
+}
+
+.learn {
+  text-align: center;  
+}
+
+.learn h1 {
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 1%;
+  color: #444
+}
+
+.learn pre {
+  text-align: left;  
+}
+
+.learn code {
+  max-height: 600px;
+  overflowY: scroll;
+}
+
+.examples {
+  text-align: center;
+  background: #3E73A7;
+  color: #fff;
+  padding: 5%;
+}
+
+.examples h1 {
+  font-size: 26px;
+  margin-bottom: 5%;
+}
+
+.examples button {
+  width: 50%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #3E73A7;
+  padding: 2% 3%;
+  transition: .5s;
+}
+
+.examples button:hover {
+  background: #3E73A7;
+  color: #fff;
+}
+
+
+/* MODALS WINDOWS */
+.mw1 {
+  border: 1px solid #3E73A7;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.mw1 .header {
+  background: #3E73A7;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 5%;
+  text-align: center;
+}
+
+.mw1 .text {
+  color: #3E73A7;
+  padding: 5%;
+}
+
+.mw1 .button {
+  padding: 2% 4%;
+  color: #fff;
+  background:  #3E73A7;
+  border: 1px solid  #3E73A7;
+  font-size: 16px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  transition: .5s;
+  cursor: pointer;
+}
+
+.mw1 .button:hover {
+  color: #3E73A7;
+  background:  #fff;
+}
+
+.ex1 {
+  background: rgba(88, 255, 97, 0.6);
+  padding: 2%;
+  color: #444;
+}
+
+.ex2 {
+  background: rgba(57, 203, 225, 0.8);
+  padding: 3%;
+  color: #444;
+}
+
+.ex3 {
+  background: #fff;
+  border: 1px solid #507299;
+  transform: translate(-50%, -50%);
+  color: #444;
+}
+
+.ex3 .header {
+  background: #507299;
+  padding: 5%;
+}
+
+.ex3 .title {
+  margin: 5%;
+}
