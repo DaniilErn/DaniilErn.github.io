@@ -28,7 +28,7 @@
           <li>Легко!</li>
           <li>Минимум JS кода!</li>
         </ul>
-        modal.js v 0.1<br />
+        modal.js v 0.2<br />
         Мы улучшаем наш контент!<br /> 
         <a href="https://github.com/DaniilErn/DaniilErn.github.io">https://github.com/DaniilErn/DaniilErn.github.io</a>
       </span>
@@ -37,69 +37,50 @@
       <h1>И так, начнем!</h1>
       <p>Для начала примеры!</p>
       <button>Нажми!</button>
+
+      <div class="exq1">
+        <span class="exit">X</span>
+        <div class="head"></div>
+        <ul>
+          <li>HTML - Структура!</li>
+          <li>CSS - Дизайн!</li>
+          <li>JS - Положение!</li>
+        </ul>
+        <button class="exit">Exit</button>
+      </div>
+
       <pre>
         JS:
         <code class='javascript'>
-         modalWindow({
-          class: 'mw1',
-          top: '50%',
-          left: '50%',
-          width: '500px',
-          height: '250px',
-          header: {
-            content: 'Это модальное окно!'
-          },
-          text: {
-            content: 'В JS вы пишите лишь то, что в нем будет, каких оно будет размеров и где находиться, все остальное стилизуется в CSS',
-            fontSize: '18px',
-            fontWeight: '200' 
-          },
-          button : {
-            content: 'click me!',
-            event: 'click',
-            eventFunc: function(event) {
-              event = event || window.event;
-              event.target.parentNode.remove();
-            }
-          }
-        });
+          modalWindow({
+            el: '.exq1',
+            top: '50%',
+            left: '50%',
+            width: '50%',
+            height: 'auto',
+            hide: false,
+            time: 20  
+          });
         </code>
         CSS:
         <code class='css'>
-          .mw1 {
-            border: 1px solid #3E73A7;
+          .exq1 {
+            display: none;
             background: #fff;
             transform: translate(-50%, -50%);
-          }
+          } 
 
-          .mw1 .header {
-            background: #3E73A7;
+          .exq1 .head {
+            padding: 4%;
+            background: blue;
+          } 
+
+          .exq1 .exit:first-child {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-weight: bold;
             color: #fff;
-            border: 1px solid #fff;
-            padding: 5%;
-            text-align: center;
-          }
-
-          .mw1 .text {
-            color: #3E73A7;
-            padding: 5%;
-          }
-
-          .mw1 .button {
-            padding: 2% 4%;
-            color: #fff;
-            background:  #3E73A7;
-            border: 1px solid  #3E73A7;
-            font-size: 16px;
-            margin-left: 50%;
-            transform: translateX(-50%);
-            transition: .5s;
-            cursor: pointer;
-          }
-
-          .mw1 .button:hover {
-            color: #3E73A7;
-            background:  #fff;
           }
         </code>
       </pre>
@@ -116,69 +97,60 @@
           });
           /* Начинается самое интересное: */
           modalWindow({
-            class: 'modalWindow', // Класс окна, по default стоит modalWindow, используется для того, чтобы взять окно в CSS 
-            top: auto, // Расстояние сверху
+            el: 'elem', // Селектор элемента
+            top: '15px', // Расстояние сверху
             right: auto, // Расстояние справа
             left: '10px', // Расстояние слева
-            bottom: '10px', // Расстояние снизу
-            opacity: 0, // С какой прозрачностью он начнет появление, если хотите сразу показать окно, без анимации появления, указываете 1, по default: 0
+            bottom: 'auto', // Расстояние снизу
             time: 50, // Время появления, default: 50
             width: '100px', // Ширина окна, по default: auto
             height: '100px', // Высота окна, по default: auto
-            textAlign: 'left', // То же, что и text-aligh: left в CSS, по default: left
-
-            /* Теперь самое интересное! Контент! */
-            header: { // Шапка
-              content: 'Шапка', // Текст внутри 
-              class: 'header' // Класс шапки, по default стоит 
-              /* Можно добавить разные события */
-              event: 'click', // Тип события
-              eventFunc: function(){
-                // Функция-обработчик события
-              }
-            },
-            title: { // Заголовок
-              content: 'Заголовок', // Текст внутри
-              class: 'title', // Класс Заголовка, default: title
-              fontFamily: 'Verdana', // Шрифт, default: Verdana
-              fontWeight: '400', // Жирность, default: 400
-              fontSize: '26px', // Размер шрифта, default: 26px
-              event: 'click', // Тип события
-              eventFunc: function(){
-                // Функция-обработчик события
-              }
-            },
-            text: { // Текст
-              content: 'Текст', // Текст внутри
-              class: 'text', // Класс Заголовка, default: text
-              fontFamily: 'Verdana', // Шрифт, default: Verdana
-              fontWeight: '400', // Жирность, default: 400
-              fontSize: '26px', // Размер шрифта, default: 26px
-              event: 'click', // Тип события
-              eventFunc: function(){
-                // Функция-обработчик события
-              }
-            },
-            button: { // Кнопка
-              content: 'Кнопка', // Текст внутри
-              class: 'button', // Класс Заголовка, default: button
-              fontFamily: 'Verdana', // Шрифт, default: Verdana
-              fontWeight: '400', // Жирность, default: 400
-              fontSize: '26px', // Размер шрифта, default: 26px
-              event: 'click', // Тип события
-              eventFunc: function(){
-                // Функция-обработчик события
-              }
-            },
-
-
-
-            
-
+            hide: true/false // Если true, то элемент не удаляется, а "выключается" ( display: none ), default: false
+            false: false // Показать сразу или нет, default: false
           });
         </code>
       </pre>
     </div>
+
+    <div class="html">
+      <h1>Самое главное, разметка, пишется в HTML</h1>
+      <pre>
+        <code class="html">
+          &lt;div class='modal'&gt;&lt;/div&gt;
+        </code>
+      </pre>
+
+     <p> Вот мы и создали каркас, теперь в него мы будем все вписывать:</p>
+
+      <pre><code class="html">
+      &lt;div class='modal'&gt;
+        &lt;p&gt;modal.js&lt;/p&gt;
+      &lt;/div&gt;
+      </code></pre>
+
+     <p> Для того что бы окно убирать, нужно дать любому элементу класс exit, вот так:</p>
+
+      <pre><code class="html">
+      &lt;div class='modal'&gt;
+        &lt;span class='exit'&gt;X&lt;/span&gt;
+        &lt;p&gt;modal.js&lt;/p&gt;
+      &lt;/div&gt;
+      </code></pre>
+
+      <p>Теперь modal.js сам найдет этот элемент и даст ему события "Убрать модальное окно".</p>
+
+      <h1><b><i>ЭЛЕМЕНТ С КЛАССОМ 'exit' НУЖНО ПИСАТЬ В ДОЧЕРНИХ ЭЛЕМЕНТАХ ДАННОГО МОДАЛЬНОГО ОКНА, ВОТ ТАК НЕ ПОЛУЧИТСЯ:</i></b></h1>
+       <pre><code class="html">
+      &lt;div class='modal'&gt;
+        &lt;p&gt;
+           &lt;span class='exit'&gt;X&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      </code></pre>
+    </div>
+  
+
+
     <div class="examples">
       <h1> Вот еще несколько примеров </h1>
       <button class="example-1">Оповещение</button>
@@ -187,5 +159,23 @@
     </div>
   </article>
 
+  <div class="alert">
+    <span class="exit">Х</span>
+    <p>Вам сообщение!</p>
+  </div>
+
+   <div class="make">
+    <span class="exit">Х</span>
+    <div class="head"> </div>
+    <button onclick='this.textContent = "Молодец!"'>Нажмите кнопку!</button>
+  </div>
+
+   <div class="choose">
+    <span class="exit">Х</span>
+    <input type="checkbox" />
+    <input type="checkbox" />
+  </div>
+
+ 
 </body>
 </html>
