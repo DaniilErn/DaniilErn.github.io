@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SuperSite</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .load {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+        }
+        .load::before {
+            content: " ";
+            position: absolute;
+            top: -100%;
+            left: 0;
+            border: 60px solid #1a76ff;
+            border-right: 60px solid transparent;
+            border-left: 60px solid transparent;
+            animation: spin 1s linear infinite;
+        }
+        h1 {
+            
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 40vw;
+            font-size: 24px;
+            font-weight: 100;
+            font-family: Verdana, sans-serif;
+            color: #444;
+        }
+        span {
+            animation: hide 1s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotateX(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes hide {
+            from {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="preloader">
+        <div class="load"></div>
+        <h1>Дождитесь загрузки.<span>..</span></h1>
+    </div>
+
+</body>
+</html>
